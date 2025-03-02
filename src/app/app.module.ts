@@ -6,12 +6,22 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './header/header.component';
 import { NavigationbarComponent } from './navigationbar/navigationbar.component';
+import { HomeComponent } from './home/home.component';
+import { AboutmeComponent } from './aboutme/aboutme.component';
+import { ProjectsComponent } from './projects/projects.component';
+import { ContactComponent } from './contact/contact.component';
+import { ProjectCardComponent } from './project-card/project-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    NavigationbarComponent
+    NavigationbarComponent,
+    HomeComponent,
+    AboutmeComponent,
+    ProjectsComponent,
+    ContactComponent,
+    ProjectCardComponent
   ],
   imports: [
     BrowserModule,
