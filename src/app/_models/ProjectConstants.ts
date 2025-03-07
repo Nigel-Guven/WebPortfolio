@@ -9,7 +9,12 @@ export const PROJECTS_DATA: Project[] = [
         description: "An Android application I developed in my final year as a contributory project. Frontend and Backend written in Java, with support from Python scripts to scrape vehicle information and Node.JS for sending notifications. Firebase infrastructure on the Blaze plan provided me with access to ML Kit for OCR and Database functionality aswell as Cloud Functions for sending mobile notifications.", 
         projectLink: "", 
         tags: [Tag.JAVA, Tag.NODEJS, Tag.PYTHON], 
-        pictures: [] 
+        pictures: 
+        [
+          "../../assets/clever_carpool.png",
+          "../../assets/android_ui.png",
+          "../../assets/android_ui_2.png"
+        ] 
     },
     { 
         id: 1, 
