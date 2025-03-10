@@ -1,4 +1,5 @@
-import { Tag } from "./tag";
+import { FrameworkTag } from "./FrameworkTag";
+import { LanguageTag } from "./LanguageTag";
 
 export interface Project {
     id: number;
@@ -7,5 +8,6 @@ export interface Project {
     description: string;
     projectLink: string;
     pictures: string[];
-    tags: Tag[];
+    languageTags: LanguageTag[];
+    frameworkTags: FrameworkTag[];
 }

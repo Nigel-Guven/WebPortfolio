@@ -7,8 +7,11 @@
 
     <div class="card-footer">
         <div class="d-flex flex-wrap justify-content center">
-            <div *ngFor="let tag of project.tags">
-                <div class="tag me-2 mb-1" [style.background-color]="tag.color">{{tag}}</div>
+            <div *ngFor="let languageTag of project.languageTags">
+                <div class="tag me-2 mb-1" [style.background-color]="languageTag.color">{{languageTag}}</div>
+            </div>
+            <div *ngFor="let frameworkTag of project.frameworkTags">
+                <div class="tag me-2 mb-1" [style.background-color]="frameworkTag.color">{{frameworkTag}}</div>
             </div>
         </div>
     </div>
