@@ -13,9 +13,9 @@ export const PROJECTS_DATA: Project[] = [
         frameworkTags: [FrameworkTag.NODEJS], 
         pictures: 
         [
-          "../../assets/clever_carpool.png",
-          "../../assets/android_ui.png",
-          "../../assets/android_ui_2.png"
+          "assets/clever_carpool.png",
+          "assets/android_ui.png",
+          "assets/android_ui_2.png"
         ] 
     },
     { 
@@ -129,16 +129,6 @@ export const PROJECTS_DATA: Project[] = [
         pictures: [] 
       },
       { 
-        id: 12, 
-        name: "College Coursework", 
-        summary: "A collection of academic programming projects.", 
-        description: "This repository includes various programming assignments and projects covering C++, Java, Python, and web development in my time at DCU enrolled in Computer Applications and Software Engineering.", 
-        projectLink: "", 
-        languageTags: [LanguageTag.CPLUSPLUS, LanguageTag.HTMLCSS, LanguageTag.JAVA, LanguageTag.PYTHON, LanguageTag.SHELL], 
-        frameworkTags: [FrameworkTag.ANGULAR],
-        pictures: [] 
-      },
-      { 
         id: 13, 
         name: "SOLID Principles", 
         summary: "A project demonstrating SOLID software principles.", 
@@ -157,6 +147,18 @@ export const PROJECTS_DATA: Project[] = [
         languageTags: [LanguageTag.GOLANG, LanguageTag.GROOVY, LanguageTag.HCL, LanguageTag.RUBY, LanguageTag.SHELL], 
         frameworkTags: [],  
         pictures: [] 
+      },
+      { 
+        id: 15, 
+        name: "MyAIRunningMate", 
+        summary: "AI-powered running & swimming analysis with a modern microservices architecture – featuring Docker, Kubernetes, Terraform, Helm, Kafka, and more.", 
+        description: "This project is a Python-based microservices architecture designed to collect, process, and analyze exercise data from Strava, providing users with personalized AI feedback and interactive visualizations.", 
+        projectLink: "https://github.com/Nigel-Guven/MyAIRunningMate", 
+        languageTags: [LanguageTag.PYTHON], 
+        frameworkTags: [],  
+        pictures: [
+          "assets/MyAIRunningMateLogo.png"
+        ] 
       }
 
 ]
