@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HARDCODED_STRINGS } from '../_models/HardcodedStrings';
 
 @Component({
   selector: 'app-navigationbar',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navigationbar.component.css']
 })
 export class NavigationbarComponent implements OnInit {
+
+  HARDCODED_STRINGS = HARDCODED_STRINGS
 
   internalLinks = [
     { label: 'Projects', path: '/projects' }

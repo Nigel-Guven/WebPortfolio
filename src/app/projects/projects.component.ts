@@ -1,20 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Project } from '../_models/Project';
-import { PROJECTS_DATA } from '../_models/ProjectConstants';
 import { ProjectsService } from '../_services/projects.service';
 import { LanguageTag } from '../_models/LanguageTag';
 import { FrameworkTag } from '../_models/FrameworkTag';
+import { HARDCODED_STRINGS } from '../_models/HardcodedStrings';
 
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.css']
 })
-export class ProjectsComponent  implements OnInit {
+export class ProjectsComponent implements OnInit {
 
-  allProjects: Project[] = PROJECTS_DATA;
+  HARDCODED_STRINGS = HARDCODED_STRINGS;
 
+  allProjects: Project[] = [];
   filteredProjects: Project[] = [];
 
   availableLanguageTags: LanguageTag[] = [];
@@ -22,7 +23,7 @@ export class ProjectsComponent  implements OnInit {
   selectedLanguageTags: Set<LanguageTag> = new Set();
   selectedFrameworkTags: Set<FrameworkTag> = new Set();
 
-  isCollapsed: boolean = true;
+  isCollapsed: boolean = true; // true = hidden
   isFilterActive: boolean = false;
 
   constructor(private titleService: Title, private projectService: ProjectsService) {
@@ -32,19 +33,16 @@ export class ProjectsComponent  implements OnInit {
   ngOnInit(): void {
     this.allProjects = this.projectService.GetProjects();
     this.extractAvailableTags();
+    this.filteredProjects = [...this.allProjects];
   }
 
   extractAvailableTags() {
-    let languageTagSet = new Set<LanguageTag>();
-    let frameworkTagSet = new Set<FrameworkTag>();
-    
+    const languageTagSet = new Set<LanguageTag>();
+    const frameworkTagSet = new Set<FrameworkTag>();
 
     this.allProjects.forEach(project => {
-      project.languageTags.forEach(languageTag => languageTagSet.add(languageTag));
-    });
-
-    this.allProjects.forEach(project => {
-      project.frameworkTags.forEach(frameworkTag => frameworkTagSet.add(frameworkTag));
+      project.languageTags.forEach(tag => languageTagSet.add(tag));
+      project.frameworkTags.forEach(tag => frameworkTagSet.add(tag));
     });
 
     this.availableLanguageTags = Array.from(languageTagSet);
@@ -52,24 +50,14 @@ export class ProjectsComponent  implements OnInit {
   }
 
   toggleLanguageTag(tag: LanguageTag) {
-    if (this.selectedLanguageTags.has(tag)) {
-      this.selectedLanguageTags.delete(tag);
-    }
-    else {
-      this.selectedLanguageTags.add(tag);
-    }
-
+    if (this.selectedLanguageTags.has(tag)) this.selectedLanguageTags.delete(tag);
+    else this.selectedLanguageTags.add(tag);
     this.applyFilter();
   }
 
   toggleFrameworkTag(tag: FrameworkTag) {
-    if (this.selectedFrameworkTags.has(tag)) {
-      this.selectedFrameworkTags.delete(tag);
-    }
-    else {
-      this.selectedFrameworkTags.add(tag);
-    }
-
+    if (this.selectedFrameworkTags.has(tag)) this.selectedFrameworkTags.delete(tag);
+    else this.selectedFrameworkTags.add(tag);
     this.applyFilter();
   }
 
@@ -77,29 +65,24 @@ export class ProjectsComponent  implements OnInit {
     if (this.selectedLanguageTags.size === 0 && this.selectedFrameworkTags.size === 0) {
       this.filteredProjects = [...this.allProjects];
       this.isFilterActive = false;
+      return;
     }
-    else {
-      let filteredByLanguage = this.projectService.GetProjectsByLanguageTags(
-        Array.from(this.selectedLanguageTags));
 
-      let filteredByFramework = this.projectService.GetProjectsByFrameworkTags(
-        Array.from(this.selectedFrameworkTags));
+    const filteredByLanguage = this.projectService.GetProjectsByLanguageTags(Array.from(this.selectedLanguageTags));
+    const filteredByFramework = this.projectService.GetProjectsByFrameworkTags(Array.from(this.selectedFrameworkTags));
 
-      let combinedFilteredProjects = [...filteredByLanguage, ...filteredByFramework];
+    const combined = [...filteredByLanguage, ...filteredByFramework];
 
-      this.filteredProjects = Array.from(new Set(combinedFilteredProjects.map(project => project.id)))
-        .map(id => combinedFilteredProjects.find(project => project.id === id))
-        .filter((project): project is Project => project !== undefined);
+    this.filteredProjects = Array.from(new Set(combined.map(p => p.id)))
+      .map(id => combined.find(p => p.id === id))
+      .filter((p): p is Project => p !== undefined);
 
-      console.log("Filtered Projects:", this.filteredProjects.map(p => p.name));
-      this.isFilterActive = true;
-    }
+    this.isFilterActive = true;
   }
 
   undoFilter() {
     this.selectedLanguageTags.clear();
     this.selectedFrameworkTags.clear();
-    this.filteredProjects = [...this.allProjects];
-    this.isFilterActive = false;
+    this.applyFilter();
   }
 }

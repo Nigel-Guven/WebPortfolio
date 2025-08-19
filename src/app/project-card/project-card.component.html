@@ -1,18 +1,20 @@
 <div class="card shadow text-center" style="max-width:350px; min-width:350px;">
     <div class="card-body">
-        <h5 class="card">{{project.name}}</h5>
-        <p class="card.text">{{project.summary}}</p>
-        <button class="btn btn-primary" (click)="OpenProjectModal()">View More</button>
+        <h5 class="card-title">{{ project.name }}</h5>
+        <p class="card-text">{{ project.summary }}</p>
+        <button class="btn btn-primary" (click)="OpenProjectModal()">{{HARDCODED_STRINGS.BUTTONS.VIEW_MORE}}</button>
     </div>
 
     <div class="card-footer">
-        <div class="d-flex flex-wrap justify-content center">
+        <div class="d-flex flex-wrap justify-content-center">
             <div *ngFor="let languageTag of project.languageTags">
-                <div class="tag me-2 mb-1" [style.background-color]="languageTag.color">{{languageTag}}</div>
+                <div class="tag me-2 mb-1" [style.background-color]="languageTag.color">{{ languageTag }}</div>
             </div>
+
             <div *ngFor="let frameworkTag of project.frameworkTags">
-                <div class="tag me-2 mb-1" [style.background-color]="frameworkTag.color">{{frameworkTag}}</div>
+                <div class="tag me-2 mb-1" [style.background-color]="frameworkTag.color">{{ frameworkTag }}</div>
             </div>
+
         </div>
     </div>
 </div>

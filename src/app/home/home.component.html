@@ -1,28 +1,55 @@
-<div class="container">
-    <div class="row">
-        <div class="col-lg shadow m-1">
-            <div class="text-center">
-                <h2>About Me</h2>
-                <img src="assets/nigelprofile.jpg" alt="profile picture" width="220" height="290" class="rounded-circle">
-                <p>Nigel Guven is a software engineer with over five years of experience in .NET development. He is currently employed at LetsGetChecked in Dublin, Ireland. His technical expertise encompasses various programming languages, including C#, Java, Python, and C++, as well as proficiency in frameworks such as Node.js, .NET Core, and Spring Boot. Nigel is also skilled in frontend technologies like Angular and Bootstrap, and has experience with cloud platforms including AWS, Azure, and Google Cloud Platform. Beyond his professional interests, Nigel is passionate about cars, new technologies, and history. His current project car is a Toyota GT86. He maintains an active presence on GitHub, where he contributes to various projects and shares his knowledge with the developer community.</p>
-            </div>
-        </div>
+<div class="container my-5">
+  <div class="row g-4">
+    <!-- About Me Section -->
+    <section class="col-lg-6 text-center text-lg-start">
+      <div class="text-center mb-3">
+        <h2>{{HARDCODED_STRINGS.PAGES.ABOUT}}</h2>
+      </div>
+      <img src="assets/nigelprofile.jpg" alt="profile picture" width="220" height="290" class="rounded-circle my-3">
 
-        <div class="col-lg shadow m-1">
-            <div class="text-center">
-                <h2>Featured Project</h2>
-                <h4>{{featuredProject.name}}</h4>
-            </div>
+      <p>
+        Hello! I'm <strong>Nigel Guven</strong>, a passionate software engineer based in Dublin, Ireland, currently building scalable solutions at <em>LetsGetChecked</em>. 
+        With over five years of experience in .NET development and full-stack engineering, I thrive on designing robust applications and exploring new technologies.
+      </p>
 
-            <carousel>
-                <div *ngFor="let picture of featuredProject.pictures">
-                    <slide><img src="{{picture}}" alt="slide" style="display: block; width: 100%"></slide>
-                </div>
-            </carousel>
+      <p>
+        My toolkit spans multiple programming languages including <strong>C#, Java, Python, C++, Node.js, TypeScript, Go, and F#</strong>, as well as frameworks like 
+        <strong>.NET Core, Spring Boot, Django, FastAPI, Angular, and Bootstrap</strong>. I’m well-versed in cloud platforms—<strong>AWS, Azure, and GCP</strong>—and have hands-on experience 
+        with serverless architectures, microservices, and modern CI/CD pipelines.
+      </p>
 
-        <p class="mt-2">{{featuredProject.summary}}</p>
-        <p>Visit the projects section to learn more!</p>
+      <p>
+        Beyond coding, I’m a lifelong learner with a love for cars, emerging tech, and history. My current project car is a <strong>Toyota GT86</strong>. I also maintain an active presence on GitHub, 
+        contributing to open-source projects and sharing insights with the developer community.
+      </p>
 
-        </div>
-    </div>
+      <p>
+        Whether architecting complex backend systems, optimizing cloud infrastructure, or experimenting with the latest frontend tools, I aim to craft software that is elegant, reliable, and impactful.
+      </p>
+
+      <!-- Optional GitHub Button -->
+      <p class="mt-3 text-center">
+        <a href="https://github.com/Nigel-Guven" target="_blank" class="btn btn-dark">
+          Visit my GitHub
+        </a>
+      </p>
+    </section>
+
+    <!-- Featured Project Section -->
+    <section class="col-lg-6 shadow p-4" *ngIf="featuredProject">
+      <div class="text-center mb-3">
+        <h2>Featured Project</h2>
+        <h4>{{featuredProject.name}}</h4>
+      </div>
+
+      <carousel [interval]="5000" [noPause]="false">
+        <slide *ngFor="let picture of featuredProject.pictures">
+          <img [src]="picture" alt="slide" class="img-fluid d-block w-100">
+        </slide>
+      </carousel>
+
+      <p class="mt-3">{{featuredProject.summary}}</p>
+      <p class="text-center">Visit the projects section to learn more!</p>
+    </section>
+  </div>
 </div>
