@@ -6,15 +6,15 @@ import { ContactComponent } from './contact/contact.component';
 import { ProjectsComponent } from './projects/projects.component';
 
 const routes: Routes = [
-  {path: 'home', component: HomeComponent},
-  {path: 'aboutme',  component: AboutmeComponent},
-  {path: 'projects',  component: ProjectsComponent},
-  {path: 'contact',  component: ContactComponent},
-  {path: '**',  component: HomeComponent, pathMatch: 'full'}
+  { path: 'home', component: HomeComponent },
+  { path: 'aboutme', component: AboutmeComponent },
+  { path: 'projects', component: ProjectsComponent },
+  { path: 'contact', component: ContactComponent },
+  { path: '**', component: HomeComponent, pathMatch: 'full' }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

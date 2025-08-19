@@ -14,7 +14,7 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/web-portfolio",
-            "baseHref": "/WebPortfolio",
+            "baseHref": "/WebPortfolio/",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -94,9 +94,6 @@
             ],
             "scripts": []
           }
-        },
-        "deploy": {
-          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }
