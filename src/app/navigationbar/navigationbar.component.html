@@ -1,18 +1,28 @@
-<nav class = "navbar-expand-md border-bottom mb-3">
-    <div class="container">
-        <ul class="nav justify-content-center">
-            <li class="nav-item">
-                <a class="nav-link text-secondary" routerLink="/home" routerLinkActive="text-dark">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-secondary" routerLink="/aboutme" routerLinkActive="text-dark">About Me</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-secondary" routerLink="/projects" routerLinkActive="text-dark">Projects</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-secondary" routerLink="/contact" routerLinkActive="text-dark">Contact</a>
-            </li>
-        </ul>
-    </div>
+<nav class="navbar-expand-md border-bottom mb-3">
+  <div class="container">
+    <ul class="nav justify-content-center">
+
+      <!-- Home link -->
+      <li class="nav-item">
+        <a class="nav-link text-secondary" [routerLink]="'/home'" routerLinkActive="text-dark" [routerLinkActiveOptions]="{ exact: true }">
+          Home
+        </a>
+      </li>
+
+      <!-- About Me GitHub link -->
+      <li class="nav-item">
+        <a class="nav-link text-secondary" [href]="githubLink" target="_blank" rel="noopener noreferrer">
+          About Me
+        </a>
+      </li>
+
+      <!-- Other internal links -->
+      <li class="nav-item" *ngFor="let nav of internalLinks">
+        <a class="nav-link text-secondary" [routerLink]="nav.path" routerLinkActive="text-dark" [routerLinkActiveOptions]="{ exact: true }">
+          {{ nav.label }}
+        </a>
+      </li>
+
+    </ul>
+  </div>
 </nav>
