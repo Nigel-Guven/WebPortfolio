@@ -11,7 +11,8 @@ export class NavigationbarComponent implements OnInit {
   HARDCODED_STRINGS = HARDCODED_STRINGS
 
   internalLinks = [
-    { label: 'Projects', path: '/projects' }
+    { label: 'Projects', path: '/projects' },
+    { label: 'Gallery', path: '/gallery' }
   ];
 
   githubLink = 'https://github.com/Nigel-Guven';

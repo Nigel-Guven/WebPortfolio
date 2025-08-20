@@ -1,0 +1,46 @@
+.gallery-image-wrapper {
+  width: 100%;
+  padding-top: 75%; /* 4:3 Aspect Ratio (height is 75% of width) */
+  position: relative;
+  overflow: hidden;
+}
+
+/* The image itself, which will fill and crop to the wrapper */
+.gallery-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* This is the key property for cropping */
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Added hover effect to the image */
+.gallery-image:hover {
+  transform: scale(1.1);
+}
+
+/* Style for the gallery items */
+.gallery-item {
+  border-radius: 8px;
+  border: 1px solid #dee2e6;
+  overflow: hidden;
+}
+
+/* Styling for the tag */
+.gallery-tag {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    margin-top: 5px;
+    font-weight: 500;
+}
+
+/* Caption styling */
+.gallery-caption {
+  text-align: center;
+}

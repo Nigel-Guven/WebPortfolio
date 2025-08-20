@@ -1,0 +1,26 @@
+<div class="container my-5">
+  <div class="text-center mb-5">
+    <h2>Travel Gallery</h2>
+    <p class="lead">A collection of moments from my adventures around the world.</p>
+  </div>
+
+  <div class="row g-4 justify-content-center">
+
+    <!-- The *ngFor directive loops through the 'photos' array in the component -->
+    <div class="col-12 col-md-4" *ngFor="let photo of photos">
+      <div class="gallery-item shadow-sm">
+        <div class="gallery-image-wrapper">
+          <!-- The [src] property binding dynamically sets the image source -->
+          <img [src]="photo.src" [alt]="photo.title" class="gallery-image rounded">
+        </div>
+        <div class="gallery-caption p-3">
+          <!-- Angular interpolation to display photo title -->
+          <h5>{{ photo.title }}</h5>
+          <!-- Angular interpolation to display the tag text -->
+          <span class="gallery-tag">{{ photo.tag }}</span>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</div>

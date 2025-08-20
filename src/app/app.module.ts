@@ -15,6 +15,7 @@ import { ProjectModalComponent } from './project-modal/project-modal.component';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { FormsModule } from '@angular/forms';
+import { GalleryComponent } from './gallery/gallery.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { FormsModule } from '@angular/forms';
     HomeComponent,
     ProjectsComponent,
     ProjectCardComponent,
-    ProjectModalComponent
+    ProjectModalComponent,
+    GalleryComponent
   ],
   imports: [
     BrowserModule,

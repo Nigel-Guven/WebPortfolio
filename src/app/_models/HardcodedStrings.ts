@@ -20,5 +20,6 @@ export const HARDCODED_STRINGS = {
     VISIT_PROJECTS: 'Visit the projects section to learn more!',
     FEATURED_PROJECT: 'Featured Project',
     MY_NAME: 'Nigel Guven',
-    MY_JOB: 'Software Developer'
+    MY_JOB: 'Software Developer',
+    MY_TAGLINE: 'Deconstructing complexity, building solutions'
 }
