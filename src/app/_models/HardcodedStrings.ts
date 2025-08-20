@@ -15,7 +15,10 @@ export const HARDCODED_STRINGS = {
     FRAMEWORKS_COLON: 'Frameworks:',
     DESCRIPTION: 'Description',
     FIND_ON_GITHUB: 'You can find this project on Github: ',
-    ABOUT: 'About Me'
-
-    
+    ABOUT: 'About Me',
+    VISIT_MY_GITHUB: 'Visit my Github',
+    VISIT_PROJECTS: 'Visit the projects section to learn more!',
+    FEATURED_PROJECT: 'Featured Project',
+    MY_NAME: 'Nigel Guven',
+    MY_JOB: 'Software Developer'
 }

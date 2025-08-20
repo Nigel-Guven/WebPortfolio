@@ -160,5 +160,4 @@ export const PROJECTS_DATA: Project[] = [
           "assets/MyAIRunningMateLogo.png"
         ] 
       }
-
 ]
